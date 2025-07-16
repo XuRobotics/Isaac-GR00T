@@ -193,9 +193,16 @@ def main(config: ArgsConfig):
     # Update action_horizon to match data config
     # Need to recreate action head with correct config since it was initialized with old config
     if data_action_horizon != model.action_head.config.action_horizon:
+        print(f"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        print(f"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
         print(
             f"Recreating action head with action_horizon {data_action_horizon} (was {model.action_head.config.action_horizon})"
         )
+        print(
+            f"Recreating action head with action_horizon {data_action_horizon} (was {model.action_head.config.action_horizon})"
+        )
+        print(f"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        print(f"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
 
         # Update the action head config
         new_action_head_config = model.action_head.config
