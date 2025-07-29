@@ -229,7 +229,7 @@ class XarmDataConfig(So100DataConfig):
     action_keys = ["action.single_arm", "action.gripper"]
     language_keys = ["annotation.human.task_description"]
     observation_indices = [0]
-    action_indices = list(range(100))
+    action_indices = list(range(200))# action chunk size
 
 ###########################################################################################
 
@@ -898,7 +898,7 @@ DATA_CONFIG_MAP = {
     "single_panda_gripper": SinglePandaGripperDataConfig(),
     "so100": So100DataConfig(),
     "so100_dualcam": So100DualCamDataConfig(),
-    "xarm_dualcam_h100": XarmDataConfig(),
+    "xarm_dualcam": XarmDataConfig(),
     "unitree_g1": UnitreeG1DataConfig(),
     "unitree_g1_full_body": UnitreeG1FullBodyDataConfig(),
     "oxe_droid": OxeDroidDataConfig(),
