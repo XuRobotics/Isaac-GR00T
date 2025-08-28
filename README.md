@@ -1,3 +1,7 @@
+**Note**: For preparing demonstration data and training GR00T on xArm, refer to the setup, data conversion, and training instructions provided [here](https://github.com/XuRobotics/xArm-MSL-ROS)
+
+
+
 <div align="center">
 
 
