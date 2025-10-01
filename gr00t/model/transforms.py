@@ -113,6 +113,7 @@ class GR00TTransform(InvertibleModalityTransform):
 
     # Private attributes to keep track of shapes/dimensions across apply/unapply
     _language_key: Optional[list[str]] = PrivateAttr(default=None)
+    _language_cmd_printed = False
 
     eagle_processor: ProcessorMixin = Field(default=build_eagle_processor(DEFAULT_EAGLE_PATH))
 
@@ -229,12 +230,20 @@ class GR00TTransform(InvertibleModalityTransform):
             if isinstance(raw_language, list):
                 raw_language = raw_language[0]
 
+            if self._language_cmd_printed == False:
+                print("========================================================")
+                print("USING USER-PROVIDED LANGUAGE INSTRUCTION, which is: ")
+                print(raw_language)
+                self._language_cmd_printed = True
+
             # Language dropout
             if self.training and self.language_dropout_prob > 1e-9:
                 if random.random() < self.language_dropout_prob:
                     raw_language = self.default_instruction
         else:
+            print("[WARNING] USING DEFAULT LANGUAGE INSTRUCTION: ")
             raw_language = self.default_instruction
+            print(raw_language)
         return raw_language
 
     def _prepare_state(self, data: dict):
